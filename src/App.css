@@ -1,24 +1,32 @@
 /* App.css */
 
 /* Estilo general */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Evita desplazamiento horizontal */
+}
+
 body {
   background-image: url('./assets/nick-chong-N__BnvQ_w18-unsplash.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
+  min-height: 100vh; /* Asegura que el fondo ocupe toda la pantalla */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Ajuste para móviles */
+/* 📱 Ajustes específicos para móviles */
 @media screen and (max-width: 768px) {
   body {
-    background-size: contain;
-    background-attachment: fixed;
+    background-size: cover;  /* Mantiene la imagen cubriendo toda la pantalla */
+    background-position: center;
   }
 }
+
 
 .fw-bold{
   color: #b33c00;
