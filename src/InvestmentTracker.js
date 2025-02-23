@@ -121,8 +121,8 @@ export default function InvestmentTracker() {
     <div className="container p-5">
       {/* Título y descripción */}
       <div className="text-center mb-4">
-        <h1 className="fw-bold">Gestión de Inversiones</h1>
-        <p className="text-muted">Administra tus inversiones de forma sencilla y eficiente. Agrega, edita o elimina tus ETFs y acciones con facilidad.</p>
+        <h1 className="fw-bold" >Gestión de Inversiones</h1>
+        <p className="text-muted2"><b>Administra tus inversiones de forma sencilla y eficiente. Agrega, edita o elimina tus ETFs y acciones con facilidad.</b></p>
       </div>
       
       <div className="card mb-4 p-4 shadow-sm">

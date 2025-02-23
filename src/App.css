@@ -2,12 +2,34 @@
 
 /* Estilo general */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f8f9fa;
-  color: #495057;
+  background-image: url('./assets/nick-chong-N__BnvQ_w18-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
   margin: 0;
   padding: 0;
 }
+
+/* Ajuste para móviles */
+@media screen and (max-width: 768px) {
+  body {
+    background-size: contain;
+    background-attachment: fixed;
+  }
+}
+
+.fw-bold{
+  color: #b33c00;
+  
+
+}
+
+.text-muted2{
+  color: #b33c00;
+}
+
 
 /* Estilo del contenedor principal */
 .container {
