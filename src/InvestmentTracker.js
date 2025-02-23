@@ -10,6 +10,8 @@
 import * as Yup from "yup";  // Importa Yup para la validación de datos
 import { useState, useEffect } from "react";  // Importa hooks de React
 import './App.css';  // Importa los estilos CSS
+import { db } from "./firebase";
+import { addDoc, collection, doc, getDocs } from "firebase/firestore";
 
 // Esquema de validación usando Yup
 const investmentSchema = Yup.object().shape({
@@ -41,8 +43,9 @@ export default function InvestmentTracker() {
 
   // useEffect para cargar las inversiones del localStorage al inicio
   useEffect(() => {
-    const savedInvestments = JSON.parse(localStorage.getItem("investments")) || [];
-    setInvestments(savedInvestments);  // Asigna las inversiones cargadas al estado
+    obtenerEtfsFirebase();
+    // const savedInvestments = JSON.parse(localStorage.getItem("investments")) || [];
+    // setInvestments(savedInvestments);  // Asigna las inversiones cargadas al estado
   }, []);
 
   // useEffect para guardar las inversiones en el localStorage cuando cambien
@@ -52,20 +55,63 @@ export default function InvestmentTracker() {
     }
   }, [investments]);
 
+
+const agregarAccionesFirebase= async(doc) => {
+  try{
+    await addDoc(collection(db, "Acciones"), doc);
+  }catch(e){
+    console.error(e);
+  }
+}
+const agregarEtfsFirebase = async(doc) => {
+  try{
+    await addDoc(collection(db, "Etfs"), doc);
+  }catch(e){
+    console.error(e);
+  }
+}
+
+const obtenerAccionesFirebase=async()=>{ //
+  const querySnapshot = await getDocs(collection(db, "Acciones"));
+  const datos = [];
+  querySnapshot.forEach((doc) => {
+    datos.push(doc.data());
+  });
+  setInvestments(datos);
+}
+const obtenerEtfsFirebase=async()=>{ //
+  const querySnapshot = await getDocs(collection(db, "Etfs"));
+  const datos = [];
+  querySnapshot.forEach((doc) => {
+  datos.push(doc.data());
+  });
+  setInvestments(datos);
+}
+
+
   // Función para agregar una nueva inversión
   const addInvestment = async () => {
+
+    console.log("Hola");
+
     try {
       // Convierte los valores de dividendos, precio y cantidad a números (si es necesario)
       const validatedInvestment = {
-        ...newInvestment,
+        ...newInvestment, //operador de deconstruir , haces una copia de ese objeto
         dividend: newInvestment.dividend ? parseFloat(newInvestment.dividend) : null,  // Si hay dividendos, los convierte a número
         price: parseFloat(newInvestment.price),  // Convierte el precio a número
         quantity: parseFloat(newInvestment.quantity),  // Convierte la cantidad a número
       };
 
-      // Valida los datos usando Yup
-      await investmentSchema.validate(validatedInvestment);  
 
+      // Valida los datos usando Yup
+      await investmentSchema.validate(validatedInvestment); 
+      if(validatedInvestment.type === "etf"){
+        agregarEtfsFirebase(validatedInvestment);
+      }else{
+        agregarAccionesFirebase(validatedInvestment);
+      }
+     
       // Si la validación es exitosa, agrega la inversión a la lista de inversiones
       const updatedInvestments = [...investments, validatedInvestment];
       setInvestments(updatedInvestments);
@@ -99,6 +145,12 @@ export default function InvestmentTracker() {
   // Función para manejar el cambio de pestaña (entre ETF y Acción)
   const handleTabChange = (tab) => {
     setActiveTab(tab);  // Cambia la pestaña activa (ETF o Acción)
+    if (tab === "etf") {
+      obtenerEtfsFirebase();
+
+    }else{
+      obtenerAccionesFirebase();
+    }
   };
 
   return (
