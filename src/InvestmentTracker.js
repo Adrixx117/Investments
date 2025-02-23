@@ -119,6 +119,12 @@ export default function InvestmentTracker() {
 
   return (
     <div className="container p-5">
+      {/* Título y descripción */}
+      <div className="text-center mb-4">
+        <h1 className="fw-bold">Gestión de Inversiones</h1>
+        <p className="text-muted">Administra tus inversiones de forma sencilla y eficiente. Agrega, edita o elimina tus ETFs y acciones con facilidad.</p>
+      </div>
+      
       <div className="card mb-4 p-4 shadow-sm">
         <h2 className="card-header">Añadir Inversión</h2>
         {error && <p className="text-danger">{error}</p>}
@@ -176,7 +182,7 @@ export default function InvestmentTracker() {
           </div>
         </div>
       </div>
-
+  
       <div className="tabs">
         <ul className="nav nav-tabs">
           <li className="nav-item">
@@ -190,33 +196,33 @@ export default function InvestmentTracker() {
       </div>
     </div>
   );
-}
-
-function InvestmentTable({ investments, onRemove }) {
-  return (
-    <table className="table table-striped">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Dividendos</th>
-          <th>Precio</th>
-          <th>Cantidad</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {investments.map((inv) => (
-          <tr key={inv.id}>
-            <td>{inv.name}</td>
-            <td>{inv.dividend}</td>
-            <td>{inv.price}</td>
-            <td>{inv.quantity}</td>
-            <td>
-              <button className="btn btn-danger me-2" onClick={() => onRemove(inv.id, inv.type)}>Eliminar</button>
-            </td>
+  
+  function InvestmentTable({ investments, onRemove }) {
+    return (
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Dividendos</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  );
+        </thead>
+        <tbody>
+          {investments.map((inv) => (
+            <tr key={inv.id}>
+              <td>{inv.name}</td>
+              <td>{inv.dividend}</td>
+              <td>{inv.price}</td>
+              <td>{inv.quantity}</td>
+              <td>
+                <button className="btn btn-danger me-2" onClick={() => onRemove(inv.id, inv.type)}>Eliminar</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  }
 }
