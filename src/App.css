@@ -5,16 +5,15 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow:auto; /* Evita el desplazamiento no deseado */
+  overflow: scroll; /* Evita el desplazamiento no deseado */
 }
 
 body {
   background-image: url('./assets/nick-chong-N__BnvQ_w18-unsplash.jpg');
-  overflow: auto;
   background-size: cover; /* Cubre todo el espacio disponible */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita la repetición de la imagen */
-  background-attachment: fixed; /* Fija la imagen para evitar errores en móviles */
+  background-attachment: scroll; /* Permite que el fondo se mueva al hacer scroll */
   min-height: 100vh; /* Asegura que el fondo ocupe toda la altura de la pantalla */
   width: 100vw; /* Asegura que el fondo ocupe todo el ancho de la pantalla */
   display: flex;
@@ -22,30 +21,48 @@ body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-/* 📱 Ajustes específicos para móviles */
 @media screen and (max-width: 768px) {
   body {
-    background-size: contain; /* Evita cortes en imágenes de fondo grandes */
-    background-position: top center; /* Mantiene la imagen visible correctamente */
+    background-attachment: scroll; /* En dispositivos móviles, se evita 'fixed' por problemas de rendimiento */
   }
 }
 
+
+
+/* --------------------------------------------------------------------- */
+/* Contenedor para centrar la imagen */
+.contenedorImagen {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente (si es necesario) */
+  width: 100%;
+}
 
 .fotoDiscipline {
-  max-width: 30%; /* La imagen no superará el ancho de su contenedor */
-  height: auto; /* El alto se ajusta proporcionalmente */
-  border-radius: 25%;
-  margin: 0 auto;
+  max-width: 50%; /* Reduce el tamaño máximo de la imagen */
+  max-height: 300px; /* Limita la altura máxima */
+  height: auto; /* Mantiene la proporción */
+  border-radius: 20%; /* Bordes redondeados */
   display: block;
+
+  /* ✨ Sombra brillante */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
 }
 
-/* Opcional: Ajustes para pantallas más pequeñas */
+/* 📱 Ajustes para móviles */
 @media screen and (max-width: 768px) {
   .fotoDiscipline {
-    border-radius: 15%; /* Reduce el radio de borde en móviles */
+    max-width: 60%; /* Un poco más grande en móviles */
+    max-height: 250px; /* Ajuste para pantallas pequeñas */
+    border-radius: 10%; /* Menos borde redondeado */
+
+    /* Ajuste de la sombra para móviles */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
   }
 }
 
+
+/* --------------------------------------------------------------------- */
 .fw-bold{
   color: #b33c00;
   

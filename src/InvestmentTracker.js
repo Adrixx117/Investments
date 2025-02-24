@@ -225,7 +225,10 @@ export default function InvestmentTracker() {
             ))}
           </tbody>
         </table>
+        <div className="contenedorImagen">
         <img src={discipline} alt="discipline" className="fotoDiscipline" />
+        </div>
+        
       </div>
     );
   }
