@@ -28,12 +28,19 @@ body {
   }
 }
 
-.fotoDiscipline{
-  width: 400px;
-  height: 400px;
+.fotoDiscipline {
+  max-width: 100%; /* La imagen no superará el ancho de su contenedor */
+  height: auto; /* El alto se ajusta proporcionalmente */
   border-radius: 25%;
   margin: 0 auto;
   display: block;
+}
+
+/* Opcional: Ajustes para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .fotoDiscipline {
+    border-radius: 15%; /* Reduce el radio de borde en móviles */
+  }
 }
 
 .fw-bold{
