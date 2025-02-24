@@ -5,31 +5,34 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Evita el desplazamiento horizontal */
+  overflow:auto; /* Evita el desplazamiento no deseado */
 }
 
 body {
   background-image: url('./assets/nick-chong-N__BnvQ_w18-unsplash.jpg');
+  overflow: auto;
   background-size: cover; /* Cubre todo el espacio disponible */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita la repetición de la imagen */
-  min-height: 100vh; /* Asegura que el fondo ocupe toda la altura de la ventana */
-  width: 100%; /* Asegura que el fondo ocupe todo el ancho de la ventana */
+  background-attachment: fixed; /* Fija la imagen para evitar errores en móviles */
+  min-height: 100vh; /* Asegura que el fondo ocupe toda la altura de la pantalla */
+  width: 100vw; /* Asegura que el fondo ocupe todo el ancho de la pantalla */
   display: flex;
   flex-direction: column;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* 📱 Ajustes específicos para móviles */
 @media screen and (max-width: 768px) {
   body {
-    background-size: cover; /* Mantiene la imagen cubriendo toda la pantalla */
-    background-position: center; /* Mantiene la imagen centrada */
+    background-size: contain; /* Evita cortes en imágenes de fondo grandes */
+    background-position: top center; /* Mantiene la imagen visible correctamente */
   }
 }
 
+
 .fotoDiscipline {
-  max-width: 100%; /* La imagen no superará el ancho de su contenedor */
+  max-width: 30%; /* La imagen no superará el ancho de su contenedor */
   height: auto; /* El alto se ajusta proporcionalmente */
   border-radius: 25%;
   margin: 0 auto;
