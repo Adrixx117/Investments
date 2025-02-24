@@ -5,7 +5,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Evita el desplazamiento no deseado */
+  overflow: scroll; /* Evita el desplazamiento no deseado */
 }
 
 body {
@@ -23,7 +23,7 @@ body {
 
 @media screen and (max-width: 768px) {
   body {
-    background-attachment:scroll; /* En dispositivos móviles, se evita 'fixed' por problemas de rendimiento */
+    background-attachment:hidden; /* En dispositivos móviles, se evita 'fixed' por problemas de rendimiento */
   }
 }
 
