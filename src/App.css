@@ -9,7 +9,7 @@ html, body {
 
 body {
   background-image: url('./assets/nick-chong-N__BnvQ_w18-unsplash.jpg');
-  overflow: scroll; /* Evita el desplazamiento no deseado */
+  overflow: hidden; /* Evita el desplazamiento no deseado */
   background-size: cover; /* Cubre todo el espacio disponible */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita la repetición de la imagen */
