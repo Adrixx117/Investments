@@ -5,16 +5,16 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Evita desplazamiento horizontal */
+  overflow-x: hidden; /* Evita el desplazamiento horizontal */
 }
 
 body {
   background-image: url('./assets/nick-chong-N__BnvQ_w18-unsplash.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh; /* Asegura que el fondo ocupe toda la pantalla */
-  width: 100%;
+  background-size: cover; /* Cubre todo el espacio disponible */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita la repetición de la imagen */
+  min-height: 100vh; /* Asegura que el fondo ocupe toda la altura de la ventana */
+  width: 100%; /* Asegura que el fondo ocupe todo el ancho de la ventana */
   display: flex;
   flex-direction: column;
 }
@@ -22,8 +22,8 @@ body {
 /* 📱 Ajustes específicos para móviles */
 @media screen and (max-width: 768px) {
   body {
-    background-size: cover;  /* Mantiene la imagen cubriendo toda la pantalla */
-    background-position: center;
+    background-size: cover; /* Mantiene la imagen cubriendo toda la pantalla */
+    background-position: center; /* Mantiene la imagen centrada */
   }
 }
 
