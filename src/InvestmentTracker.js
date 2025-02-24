@@ -3,6 +3,7 @@
  * Se almacenan en Firebase y se validan con Yup.
  */
 import * as Yup from "yup";
+import discipline from './assets/discipline.png';
 import { useState, useEffect } from "react";
 import './App.css';
 import { db } from "./firebase";
@@ -199,30 +200,33 @@ export default function InvestmentTracker() {
   
   function InvestmentTable({ investments, onRemove }) {
     return (
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Dividendos</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {investments.map((inv) => (
-            <tr key={inv.id}>
-              <td>{inv.name}</td>
-              <td>{inv.dividend}</td>
-              <td>{inv.price}</td>
-              <td>{inv.quantity}</td>
-              <td>
-                <button className="btn btn-danger me-2" onClick={() => onRemove(inv.id, inv.type)}>Eliminar</button>
-              </td>
+      <div>
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Dividendos</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Acciones</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {investments.map((inv) => (
+              <tr key={inv.id}>
+                <td>{inv.name}</td>
+                <td>{inv.dividend}</td>
+                <td>{inv.price}</td>
+                <td>{inv.quantity}</td>
+                <td>
+                  <button className="btn btn-danger me-2" onClick={() => onRemove(inv.id, inv.type)}>Eliminar</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <img src={discipline} alt="discipline" className="fotoDiscipline" />
+      </div>
     );
   }
 }
