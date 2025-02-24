@@ -12,7 +12,7 @@ body {
   background-size: cover; /* Cubre todo el espacio disponible */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita la repetición de la imagen */
-  background-attachment: scroll; /* Permite que el fondo se mueva al hacer scroll */
+  background-attachment: fixed; /* Permite que el fondo se mueva al hacer scroll */
   min-height: 100vh; /* Asegura que el fondo ocupe toda la altura de la pantalla */
   width: 100vw; /* Asegura que el fondo ocupe todo el ancho de la pantalla */
   display: flex;
