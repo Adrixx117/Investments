@@ -161,7 +161,7 @@ export default function InvestmentTracker() {
           <div className="col-md-2">
             <input
               className="form-control"
-              placeholder="Precio"
+              placeholder="Inversión"
               type="number"
               step="any"
               value={newInvestment.price}
@@ -206,7 +206,7 @@ export default function InvestmentTracker() {
             <tr>
               <th>Nombre</th>
               <th>Dividendos</th>
-              <th>Precio</th>
+              <th>Inversion</th>
               <th>Cantidad</th>
               <th>Acciones</th>
             </tr>
